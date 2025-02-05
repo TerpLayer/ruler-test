@@ -1,0 +1,24 @@
+name: Go Tests
+
+on:
+  pull_request:  # 监听 PR 事件
+    branches:
+      - main  # 只在 main 分支的 PR 触发
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # 运行环境
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Go
+        uses: actions/setup-go@v5
+        with:
+          go-version: 1.21  # 指定 Go 版本
+
+      - name: Install dependencies
+        run: go mod tidy  # 确保依赖完整
+
+      - name: Run unit tests
+        run: go test ./ -v  # 运行所有测试，并输出详细日志
