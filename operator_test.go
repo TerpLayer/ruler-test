@@ -19,6 +19,6 @@ func TestSub(t *testing.T) {
 	result = Sub(3, 1)
 	require.Equal(t, 2, result)
 
-	result = Sub(3, 1)
-	require.Equal(t, 1, result)
+	// result = Sub(3, 1)
+	// require.Equal(t, 1, result)
 }
